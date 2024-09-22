@@ -26,8 +26,8 @@ function voteQuestion(author, qid, answer) {
     };
 }
 
-export function handleCreateQuestion(authenticatedUser, firstOption, secondOption) {
-    return (dispatch, getState) => {
+export function handleCreateQuestion(firstOption, secondOption, authenticatedUser) {
+    return (dispatch) => {
         return saveQuestion(firstOption, secondOption, authenticatedUser)
             .then((question) => {
                 dispatch(createQuestion(question));

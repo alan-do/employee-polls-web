@@ -5,12 +5,15 @@ import Login from "./auth/Login";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { handleInitialData } from "../redux/actions/sharedAction";
+
 import NotFound from "../components/common/NotFound";
 import QuestionDetail from "./QuestionDetail/QuestionDetail";
 import DashBoard from "./dashboard/Dashboard";
 import Navigation from "./navigation/Navigation";
-import { useSelector } from "react-redux";
+import Leaderboard from "./leaderboard/Leaderboard";
+import CreatePoll from "./createPoll/CreatePoll";
 
+import { useSelector } from "react-redux";
 const App = () => {
   const dispatch = useDispatch();
 
@@ -31,6 +34,10 @@ const App = () => {
         <Route path="/404" exact element={<NotFound />} />
 
         <Route path="/questions/:id" element={<QuestionDetail />} />
+
+        <Route path="/leaderboard" element={<PrivateRoute><Leaderboard /></PrivateRoute>} />
+
+        <Route path="/new" element={<PrivateRoute><CreatePoll /></PrivateRoute>} />
 
       </Routes>
     </Router>

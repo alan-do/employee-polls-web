@@ -30,7 +30,6 @@ const Dashboard = () => {
                     <li className="text-center">Không có câu hỏi mới</li>
                 )}
             </ul>
-
             <h2 className="section-title">Answered Questions</h2>
             <ul className="grid-section">
                 {questions.filter(answered).length > 0 ? (

@@ -1,7 +1,6 @@
 import { SAVE_ANSWER_USER, SAVE_QUESTION_USER, GET_USERS } from "../actions/userAction";
 
 export default function users(state = {}, action) {
-    console.log('action.authenticatedUser', action.authenticatedUser)
     switch (action.type) {
         case GET_USERS:
             return {
