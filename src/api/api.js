@@ -15,9 +15,9 @@ export const saveQuestion = async (optionOneText, optionTwoText, author) => {
     return await _saveQuestion({ optionOneText, optionTwoText, author });
 }
 
-export const saveQuestionAnswer = async (authedUserId, qid, answer) => {
+export const saveQuestionAnswer = async (authenticatedUserId, qid, answer) => {
     return await _saveQuestionAnswer({
-        authedUser: authedUserId,
+        authedUser: authenticatedUserId,
         qid,
         answer
     });

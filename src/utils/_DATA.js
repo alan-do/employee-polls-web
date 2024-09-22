@@ -179,9 +179,7 @@ export function _saveQuestion (question) {
 }
 
 export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
-  console.log('authedUser', authedUser);
-  console.log('qid', qid);
-  console.log('answer', answer);
+ 
   return new Promise((resolve, reject) => {
     if (!authedUser || !qid || !answer) {
       reject("Please provide authedUser, qid, and answer");

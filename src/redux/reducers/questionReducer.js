@@ -1,6 +1,6 @@
 import { VOTE_QUESTION, CREATE_QUESTION, GET_QUESTIONS } from "../actions/questionsAction";
 
-export default function questions(state = {}, action) {
+export default function questionReducer(state = {}, action) {
     switch (action.type) {
         case GET_QUESTIONS:
             return {

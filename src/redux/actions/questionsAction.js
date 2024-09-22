@@ -1,5 +1,5 @@
-import {saveQuestion, saveQuestionAnswer} from "../../api/api";
-import {saveAnswerUser, saveQuestionUser} from "./userAction";
+import { saveQuestion, saveQuestionAnswer } from "../../api/api";
+import { saveAnswerUser, saveQuestionUser } from "./userAction";
 export const CREATE_QUESTION = "CREATE_QUESTION";
 export const VOTE_QUESTION = "VOTE_QUESTION";
 export const GET_QUESTIONS = "GET_QUESTIONS";
@@ -26,11 +26,9 @@ function voteQuestion(author, qid, answer) {
     };
 }
 
-export function handleCreateQuestion(firstOption, secondOption) {
+export function handleCreateQuestion(authenticatedUser, firstOption, secondOption) {
     return (dispatch, getState) => {
-        const { authedUser } = getState();
-
-        return saveQuestion(firstOption, secondOption, authedUser)
+        return saveQuestion(firstOption, secondOption, authenticatedUser)
             .then((question) => {
                 dispatch(createQuestion(question));
                 dispatch(saveQuestionUser(question))
@@ -38,13 +36,13 @@ export function handleCreateQuestion(firstOption, secondOption) {
     };
 }
 
-export function handleVoteQuestion(questionId, answer) {
-    return (dispatch, getState) => {
-        const { authedUser } = getState();
-        return saveQuestionAnswer(authedUser.id, questionId, answer)
+export function handleVoteQuestion(authenticatedUser, questionId, answer) {
+    return (dispatch) => {
+
+        return saveQuestionAnswer(authenticatedUser.id, questionId, answer)
             .then(() => {
-                dispatch(voteQuestion(authedUser.id, questionId, answer));
-                dispatch(saveAnswerUser(authedUser.id, questionId, answer));
+                dispatch(voteQuestion(authenticatedUser.id, questionId, answer));
+                dispatch(saveAnswerUser(authenticatedUser.id, questionId, answer));
             });
     };
 }

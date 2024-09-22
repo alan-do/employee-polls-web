@@ -10,6 +10,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
+  align-items: center;
+
 }
 .question-container:hover {
   transform: scale(1.02);
@@ -28,4 +30,13 @@
 .timestamp {
   font-size: 14px;
   color: #999;
+}
+.button-question {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 60%;
 }

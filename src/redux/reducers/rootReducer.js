@@ -7,6 +7,4 @@ const rootReducer = combineReducers({
     users: userReducer,
     questions: questionReducer,
 });
-
-
 export default rootReducer;

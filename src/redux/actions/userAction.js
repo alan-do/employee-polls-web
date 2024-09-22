@@ -9,10 +9,10 @@ export function getUsers(users) {
     };
 }
 
-export function saveAnswerUser(authedUser, qid, answer) {
+export function saveAnswerUser(authenticatedUser, qid, answer) {
     return {
         type: SAVE_ANSWER_USER,
-        authedUser,
+        authenticatedUser,
         qid,
         answer,
     };

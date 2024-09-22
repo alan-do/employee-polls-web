@@ -7,10 +7,20 @@
     background-color: #fff;
 }
 
+.section-questions {
+    padding: 4;
+}
+
 .grid-section {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .grid-section {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (min-width: 768px) {
@@ -19,3 +29,14 @@
     }
 }
 
+@media (min-width: 1024px) {
+    .grid-section {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 1280px) {
+    .grid-section {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

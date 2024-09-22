@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { handleInitialData } from "../redux/actions/sharedAction";
 import NotFound from "../components/common/NotFound";
+import QuestionDetail from "./QuestionDetail/QuestionDetail";
 import DashBoard from "./dashboard/Dashboard";
 import Navigation from "./navigation/Navigation";
 import { useSelector } from "react-redux";
@@ -28,6 +29,8 @@ const App = () => {
         <Route path="/" element={<PrivateRoute><DashBoard /></PrivateRoute>} />
 
         <Route path="/404" exact element={<NotFound />} />
+
+        <Route path="/questions/:id" element={<QuestionDetail />} />
 
       </Routes>
     </Router>
