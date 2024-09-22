@@ -1,0 +1,31 @@
+.question-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 6px ;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.question-container:hover {
+  transform: scale(1.02);
+}
+.question-container:hover .author {
+  color: #0056b3;
+}
+.question-container:hover .timestamp {
+  color: #0056b3;
+}
+.author {
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+}
+.timestamp {
+  font-size: 14px;
+  color: #999;
+}
