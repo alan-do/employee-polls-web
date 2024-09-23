@@ -42,7 +42,7 @@ function Login() {
     };
 
     return (
-        <div className="login-container">
+        <div className="login-container" data-testid="login-container">
             <h1 className="login-title">Login</h1>
             <img className="app-logo" src="/assets/poll.png" alt="logo" />
             <Dropdown.Button
@@ -54,7 +54,7 @@ function Login() {
                 placement="bottom"
                 icon={<UserOutlined />}
             >
-                {selectedUser ? usersList[selectedUser].name : "Select User"}
+                {selectedUser ? usersList[selectedUser].name : "Select user"}
             </Dropdown.Button>
             <Button type="primary" onClick={onLogin} disabled={!selectedUser}>Login</Button>
         </div>

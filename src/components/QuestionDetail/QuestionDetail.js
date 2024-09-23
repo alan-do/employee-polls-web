@@ -57,7 +57,7 @@ const QuestionDetail = () => {
                 <h1 className="author-name">Poll by {author.name}</h1>
                 <img src={author.avatarURL} alt="author" className="author-avatar" />
             </div>
-
+            <h1 className="question-title">Would you rather?</h1>
             <div className="options-container">
 
                 <QuestionOption

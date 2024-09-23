@@ -26,9 +26,9 @@ const Navigation = () => {
         <Link to="/leaderboard"
           onClick={() => setSelectedTab('leaderboard')}
           className={`nav-item ${selectedTab === 'leaderboard' ? 'selected' : ''}`}>Leaderboard</Link>
-        <Link to="/new"
-          onClick={() => setSelectedTab('new')}
-          className={`nav-item ${selectedTab === 'new' ? 'selected' : ''}`}>New
+        <Link to="/add"
+          onClick={() => setSelectedTab('add')}
+          className={`nav-item ${selectedTab === 'add' ? 'selected' : ''}`}>New
           Poll</Link>
       </div>
       <div className="user-info">

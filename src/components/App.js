@@ -37,7 +37,7 @@ const App = () => {
 
         <Route path="/leaderboard" element={<PrivateRoute><Leaderboard /></PrivateRoute>} />
 
-        <Route path="/new" element={<PrivateRoute><CreatePoll /></PrivateRoute>} />
+        <Route path="/add" element={<PrivateRoute><CreatePoll /></PrivateRoute>} />
 
       </Routes>
     </Router>

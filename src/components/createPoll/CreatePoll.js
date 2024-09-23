@@ -35,13 +35,14 @@ const CreatePoll = () => {
     return (
         <div>
             <h1 className="title">New Poll</h1>
-            <form onSubmit={handleSubmit}>
-
+            <form onSubmit={handleSubmit} className="form">
                 <div className="form-group">
                     <label htmlFor="optionOne"
-                        className="label">First Option</label>
-                    <div className="input-container">
+                        data-testid="optionOneLabel"
+                        className="label">Option One</label>
+                    <div className="input-container" data-testid="optionOne">
                         <input
+                            data-testid="optionOneInput"
                             value={optionOne}
                             onChange={onChangeOptionOne}
                             type="text"
@@ -53,9 +54,11 @@ const CreatePoll = () => {
 
                 <div className="form-group">
                     <label htmlFor="optionTwo"
-                        className="label">Second Option</label>
-                    <div className="input-container">
+                        data-testid="optionTwoLabel"
+                        className="label">Option Two</label>
+                    <div className="input-container" data-testid="optionTwo">
                         <input
+                            data-testid="optionTwoInput"
                             value={optionTwo}
                             onChange={onChangeOptionTwo}
                             type="text"
@@ -67,6 +70,7 @@ const CreatePoll = () => {
 
                 <div className="button-container">
                     <button type="submit"
+                        data-testid="submit-poll"
                         className="button">
                         Submit
                     </button>

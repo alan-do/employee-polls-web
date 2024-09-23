@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatePoll should render the component 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <h1
+          class="title"
+        >
+          New Poll
+        </h1>
+        <form
+          class="form"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="label"
+              data-testid="optionOneLabel"
+              for="optionOne"
+            >
+              Option One
+            </label>
+            <div
+              class="input-container"
+              data-testid="optionOne"
+            >
+              <input
+                class="input"
+                data-testid="optionOneInput"
+                id="optionOne"
+                name="optionOne"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="form-group"
+          >
+            <label
+              class="label"
+              data-testid="optionTwoLabel"
+              for="optionTwo"
+            >
+              Option Two
+            </label>
+            <div
+              class="input-container"
+              data-testid="optionTwo"
+            >
+              <input
+                class="input"
+                data-testid="optionTwoInput"
+                id="optionTwo"
+                name="optionTwo"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="button-container"
+          >
+            <button
+              class="button"
+              data-testid="submit-poll"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <h1
+        class="title"
+      >
+        New Poll
+      </h1>
+      <form
+        class="form"
+      >
+        <div
+          class="form-group"
+        >
+          <label
+            class="label"
+            data-testid="optionOneLabel"
+            for="optionOne"
+          >
+            Option One
+          </label>
+          <div
+            class="input-container"
+            data-testid="optionOne"
+          >
+            <input
+              class="input"
+              data-testid="optionOneInput"
+              id="optionOne"
+              name="optionOne"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="form-group"
+        >
+          <label
+            class="label"
+            data-testid="optionTwoLabel"
+            for="optionTwo"
+          >
+            Option Two
+          </label>
+          <div
+            class="input-container"
+            data-testid="optionTwo"
+          >
+            <input
+              class="input"
+              data-testid="optionTwoInput"
+              id="optionTwo"
+              name="optionTwo"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="button-container"
+        >
+          <button
+            class="button"
+            data-testid="submit-poll"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

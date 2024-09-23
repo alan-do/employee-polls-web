@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should render the component 1`] = `
+<nav
+  class="nav-container"
+>
+  <div
+    class="nav-items"
+  >
+    <a
+      class="nav-item selected"
+      href="/"
+    >
+      Dashboard
+    </a>
+    <a
+      class="nav-item "
+      href="/leaderboard"
+    >
+      Leaderboard
+    </a>
+    <a
+      class="nav-item "
+      href="/add"
+    >
+      New Poll
+    </a>
+  </div>
+  <div
+    class="user-info"
+  >
+    <img
+      alt="User Avatar"
+      class="user-avatar"
+    />
+    <span
+      class="user-name"
+      data-testid="user-information"
+    >
+      sarahedo
+    </span>
+    <button
+      class="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+    >
+      Logout
+    </button>
+  </div>
+</nav>
+`;

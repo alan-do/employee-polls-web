@@ -18,8 +18,14 @@ const Leaderboard = () => {
                         users.map((user) => (
                             <tr key={user.id}>
                                 <td className="table-body-item">
-                                    <span className="user-name">{user.name}</span>
-                                    <br />{user.id}</td>
+                                    <div className="user-info">
+                                        <img src={user.avatarURL} alt={user.name} className="user-avatar" />
+                                        <div className="user-name">
+                                            <span className="user-name">{user.name}</span>
+                                            <br />{user.id}
+                                        </div>
+                                    </div>
+                                </td>
                                 <td className="table-body-item">{Object.keys(user.answers).length}</td>
                                 <td className="table-body-item">{user.questions.length}</td>
                             </tr>

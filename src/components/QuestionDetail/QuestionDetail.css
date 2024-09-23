@@ -67,3 +67,11 @@
     background-color: #000;
     color: #fff;
 }
+
+.question-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
