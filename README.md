@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Polling App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application allows users to create and vote on polls. It is built using React and Redux for state management.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Create Polls**: Authenticated users can create new polls with two options.
+- **Vote on Polls**: Users can vote on existing polls.
+- **View Polls**: Users can view all polls and their results.
+- **User Authentication**: Users must be authenticated to create or vote on polls.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Database Description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The application uses a simple in-memory database to store users, questions, and answers. The data is structured as follows:
 
-### `npm test`
+- **Users**: Each user has an ID, name, avatar URL, and a list of questions they have created and answers they have given.
+- **Questions**: Each question has an ID, author, timestamp, and two options. Each option contains the text of the option and a list of users who have voted for that option.
+- **Answers**: Each answer links a user to a question and records the option the user has chosen.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The data is managed using Redux for state management, with actions and reducers to handle creating questions, saving answers, and retrieving users and questions.
 
-### `npm run build`
+### Application Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application is structured into several key components and utilizes various technologies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **React**: The core library for building the user interface. Components are used to create the different parts of the application, such as forms, buttons, and lists.
+- **Redux**: A state management library used to manage the application's state. It helps in maintaining the state of users, questions, and answers across the application.
+- **React Router**: A library used for routing in the application. It allows for navigation between different pages, such as the home page, create poll page, and poll details page.
+- **Redux Thunk**: A middleware for Redux that allows for writing action creators that return a function instead of an action. It is used for handling asynchronous operations, such as API calls.
+- **CSS**: Styling is done using CSS to make the application visually appealing and user-friendly.
+- **Jest**: A testing framework used to write and run tests for the application, ensuring the code is reliable and bug-free.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The application is divided into the following main directories:
 
-### `npm run eject`
+- **src/components**: Contains the React components used in the application.
+- **src/redux/actions**: Contains the action creators for Redux.
+- **src/redux/reducers**: Contains the reducers for Redux.
+- **src/api**: Contains the API functions for interacting with the in-memory database.
+- **src/utils**: Contains utility functions and data for the application.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Running the Application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Node.js and npm installed on your machine.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Installation
 
-## Learn More
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/your-username/polling-app.git
+    cd polling-app
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Running the App
 
-### Code Splitting
+1. Start the development server:
+    ```sh
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Open your browser and navigate to:
+    ```
+    http://localhost:3000
+    ```
 
-### Analyzing the Bundle Size
+### Running Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To run the tests, use the following command:
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
