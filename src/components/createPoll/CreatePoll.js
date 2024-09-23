@@ -11,6 +11,7 @@ const CreatePoll = () => {
     const authenticatedUser = useSelector(state => state.authenticatedUser);
     const [optionOne, setOptionOne] = useState("");
     const [optionTwo, setOptionTwo] = useState("");
+    const [error, setError] = useState("");
 
     const onChangeOptionOne = (e) => {
         const value = e.target.value;
@@ -24,6 +25,10 @@ const CreatePoll = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (optionOne.trim() === "" || optionTwo.trim() === "") {
+            setError("Both options must be filled.");
+            return;
+        }
         dispatch(handleCreateQuestion(
             optionOne,
             optionTwo,
@@ -36,6 +41,7 @@ const CreatePoll = () => {
         <div>
             <h1 className="title">New Poll</h1>
             <form onSubmit={handleSubmit} className="form">
+                
                 <div className="form-group">
                     <label htmlFor="optionOne"
                         data-testid="optionOneLabel"
@@ -69,6 +75,7 @@ const CreatePoll = () => {
                 </div>
 
                 <div className="button-container">
+                {error && <p className="error">{error}</p>}
                     <button type="submit"
                         data-testid="submit-poll"
                         className="button">

@@ -57,13 +57,22 @@
 }
 
 .button-container {
+    flex-direction: column;
     display: flex;
     justify-content: center;
     margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
 }
 
 .form {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
 }
