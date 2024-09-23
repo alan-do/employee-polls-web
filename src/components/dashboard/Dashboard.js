@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux";
 import Question from "../common/Question/Question";
 import "./Dashboard.css";
+import { useState } from "react";
 
 const Dashboard = () => {
+    const [showUnanswered, setShowUnanswered] = useState(true);
     const authenticatedUser = useSelector((state) => state.authenticatedUser);
     const questions = useSelector((state) => {
         const questionsArray = Object.values(state.questions);
@@ -21,34 +23,44 @@ const Dashboard = () => {
 
     return (
         <div className="section-questions" data-testid="section-questions">
-            <h2 className="section-title">Unanswered Questions</h2>
-            <ul className="grid-section">
-                {questionsArray.filter(unanswered).length > 0 ? (
-                    questionsArray
-                        .filter(unanswered)
-                        .map((question) => (
-                            <li key={question.id}>
-                                <Question question={question} author={users[question.author]}/>
-                            </li>
-                        ))
-                ) : (
-                    <li className="text-center">No unanswered questions</li>
-                )}
-            </ul>
-            <h2 className="section-title">Answered Questions</h2>
-            <ul className="grid-section">
-                {questionsArray.filter(answered).length > 0 ? (
-                    questionsArray
-                        .filter(answered)
-                        .map((question) => (
-                            <li key={question.id}>
-                                <Question question={question} author={users[question.author]}/>
-                            </li>
-                        ))
-                ) : (
-                    <li className="text-center">No answered questions</li>
-                )}
-            </ul>
+            <button className="btn-toggle" onClick={() => setShowUnanswered(!showUnanswered)}>
+                {showUnanswered ? "Show Answered Questions" : "Show Unanswered Questions"}
+            </button>
+            {showUnanswered ? (
+                <>
+                    <h2 className="section-title">Unanswered Questions</h2>
+                    <ul className="grid-section">
+                        {questionsArray.filter(unanswered).length > 0 ? (
+                            questionsArray
+                                .filter(unanswered)
+                                .map((question) => (
+                                    <li key={question.id}>
+                                        <Question question={question} author={users[question.author]}/>
+                                    </li>
+                                ))
+                        ) : (
+                            <li className="text-center">No unanswered questions</li>
+                        )}
+                    </ul>
+                </>
+            ) : (
+                <>
+                    <h2 className="section-title-answered">Answered Questions</h2>
+                    <ul className="grid-section">
+                        {questionsArray.filter(answered).length > 0 ? (
+                            questionsArray
+                                .filter(answered)
+                                .map((question) => (
+                                    <li key={question.id}>
+                                        <Question question={question} author={users[question.author]}/>
+                                    </li>
+                                ))
+                        ) : (
+                            <li className="text-center">No answered questions</li>
+                        )}
+                    </ul>
+                </>
+            )}
         </div>
     );
 }

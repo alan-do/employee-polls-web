@@ -65,3 +65,24 @@
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+
+.section-title-answered {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: #333;
+    text-align: center;
+    background-color: #d7f8d7;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 20px;   
+}
+
+.btn-toggle {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

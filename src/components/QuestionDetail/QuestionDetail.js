@@ -13,7 +13,7 @@ const QuestionDetail = () => {
 
     const authenticatedUser = useSelector((state) => state.authenticatedUser);
     const author = useSelector((state) => state.users[question?.author]);
-    
+
     if (!authenticatedUser || !question || !author) {
         navigate("/404");
         return null;
@@ -56,10 +56,17 @@ const QuestionDetail = () => {
             </button>
             <div className="author-container">
                 <h1 className="author-name">Poll by {author.name}</h1>
+
+                {hasVoted ? (
+                    <p className="poll-status-answered">You voted for this option</p>
+                ) : (
+                    <p className="poll-status-unanswered">You haven't voted yet</p>
+                )}
                 <img src={author.avatarURL} alt="author" className="author-avatar" />
             </div>
+
             <h1 className="question-title">Would you rather?</h1>
-            <div className="options-container">
+            <div className={`options-container ${hasVoted ? 'answered' : 'unanswered'}`}>
 
                 <QuestionOption
                     option={question.optionOne}
@@ -75,8 +82,8 @@ const QuestionDetail = () => {
                     isChoosen={hasVotedForOptionTwo}
                     percentageVotes={calcPercentage("optionTwo", question)}
                 />
-
             </div>
+
         </div>
     );
 };

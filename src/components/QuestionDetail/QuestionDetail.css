@@ -4,6 +4,10 @@
     gap: 1rem;
     margin-top: 1rem;
 }
+.answered {
+    background-color: #4caf50;
+    color: #fff;
+}
 @media (max-width: 768px) {
     .options-container {
         grid-template-columns: 1fr;
@@ -74,4 +78,24 @@
     font-weight: bold;
     margin-bottom: 10px;
     color: #333;
+}
+.poll-status-answered {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    background-color: #4caf50;
+    padding: 10px;
+    border-radius: 5px;
+}
+.poll-status-unanswered {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #f44336;
 }
