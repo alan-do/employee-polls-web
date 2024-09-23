@@ -4,7 +4,11 @@ import "./Dashboard.css";
 
 const Dashboard = () => {
     const authenticatedUser = useSelector((state) => state.authenticatedUser);
-    const questions = useSelector((state) => state.questions);
+    const questions = useSelector((state) => {
+        const questionsArray = Object.values(state.questions);
+        return questionsArray.sort((a, b) => b.timestamp - a.timestamp);
+    });
+    
     const users = useSelector((state) => state.users);
 
     const unanswered = (question) => (!question.optionOne.votes.includes(authenticatedUser.id)
