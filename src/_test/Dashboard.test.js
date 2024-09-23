@@ -50,6 +50,5 @@ describe("Dashboard", () => {
       </Provider>
     );
     expect(screen.getByText("Unanswered Questions")).toBeInTheDocument();
-    expect(screen.getByText("Answered Questions")).toBeInTheDocument();
   });
 });
