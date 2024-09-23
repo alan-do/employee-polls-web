@@ -1,6 +1,7 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom"; // Thêm useParams
 import { handleVoteQuestion } from "../../redux/actions/questionsAction";
 import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
 
 import "./QuestionDetail.css";
 import QuestionOption from "./components/QuestionOption";
@@ -9,13 +10,21 @@ const QuestionDetail = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const location = useLocation();
-    const question = location.state?.id;
+    const { id } = useParams(); // Lấy id từ URL
+    const question = useSelector((state) => state.questions[id]); // Lấy câu hỏi từ state
 
     const authenticatedUser = useSelector((state) => state.authenticatedUser);
     const author = useSelector((state) => state.users[question?.author]);
 
+    useEffect(() => {
+        if (!authenticatedUser) {
+            navigate("/login", { state: { from: location } });
+        } else if (!question || !author) {
+            navigate("/404");
+        }
+    }, [authenticatedUser, question, author, navigate, location]);
+
     if (!authenticatedUser || !question || !author) {
-        navigate("/404");
         return null;
     }
 
