@@ -7,7 +7,7 @@ const Dashboard = () => {
     const [showUnanswered, setShowUnanswered] = useState(true);
     const authenticatedUser = useSelector((state) => state.authenticatedUser);
     const questions = useSelector((state) => {
-        const questionsArray = Object.values(state.questions);
+        const questionsArray = state.questions ? Object.values(state.questions) : [];
         return questionsArray.sort((a, b) => b.timestamp - a.timestamp);
     });
     
