@@ -3,6 +3,11 @@ import "./Leaderboard.css";
 
 const Leaderboard = () => {
     const users = Object.values(useSelector((state) => state.users));
+    const sortedUsers = users.sort((a, b) => 
+        (Object.keys(b.answers).length + b.questions.length) - 
+        (Object.keys(a.answers).length + a.questions.length)
+    );
+
     return (
         <div>
             <table className="table-container">
@@ -15,7 +20,7 @@ const Leaderboard = () => {
                 </thead>
                 <tbody className="table-body">
                     {
-                        users.map((user) => (
+                        sortedUsers.map((user) => (
                             <tr key={user.id}>
                                 <td className="table-body-item">
                                     <div className="user-info">

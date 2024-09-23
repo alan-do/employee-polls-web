@@ -9,13 +9,14 @@ const QuestionDetail = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const location = useLocation();
-    const question = location.state.id;
+    const question = location.state?.id;
 
     const authenticatedUser = useSelector((state) => state.authenticatedUser);
-    const author = useSelector((state) => state.users[question.author]);
-
+    const author = useSelector((state) => state.users[question?.author]);
+    
     if (!authenticatedUser || !question || !author) {
-        return navigate("/404");
+        navigate("/404");
+        return null;
     }
 
     const hasVotedForOptionOne = question.optionOne.votes.includes(authenticatedUser.id);

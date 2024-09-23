@@ -27,17 +27,17 @@ const App = () => {
       {isAuthenticated ? <Navigation /> : null}
       <Routes>
 
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" exact element={<Login />} />
 
-        <Route path="/" element={<PrivateRoute><DashBoard /></PrivateRoute>} />
+        <Route path="/" exact element={<PrivateRoute><DashBoard /></PrivateRoute>} />
 
         <Route path="/404" exact element={<NotFound />} />
 
-        <Route path="/questions/:id" element={<QuestionDetail />} />
+        <Route path="/questions/:id" exact element={<QuestionDetail />} />
 
-        <Route path="/leaderboard" element={<PrivateRoute><Leaderboard /></PrivateRoute>} />
+        <Route path="/leaderboard" exact element={<PrivateRoute><Leaderboard /></PrivateRoute>} />
 
-        <Route path="/add" element={<PrivateRoute><CreatePoll /></PrivateRoute>} />
+        <Route path="/add" exact element={<PrivateRoute><CreatePoll /></PrivateRoute>} />
 
       </Routes>
     </Router>
