@@ -20,6 +20,7 @@ const QuestionOption = ({
       <p className="text-xs text-gray-500">
         Votes: {option.votes.length} ({percentageVotes}%)
       </p>
+      {isChoosen && <p className="text-xs text-green-500">You choosed this option</p>}
     </div>
   );
 };
