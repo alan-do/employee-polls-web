@@ -13,7 +13,6 @@ function Login() {
 
     const usersList = useSelector((state) => state.users);
     const [selectedUser, setSelectedUser] = useState("");
-    const [password, setPassword] = useState("");
     const isAuthenticated = useSelector((state) => state.authenticatedUser);
     useEffect(() => {
         if (isAuthenticated) {

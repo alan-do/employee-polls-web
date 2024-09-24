@@ -1,7 +1,7 @@
 import { useNavigate, useLocation, useParams } from "react-router-dom"; // Thêm useParams
 import { handleVoteQuestion } from "../../redux/actions/questionsAction";
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./QuestionDetail.css";
 import QuestionOption from "./components/QuestionOption";
@@ -16,11 +16,18 @@ const QuestionDetail = () => {
     const authenticatedUser = useSelector((state) => state.authenticatedUser);
     const author = useSelector((state) => state.users[question?.author]);
 
+    const [percentageOptionOne, setPercentageOptionOne] = useState(0);
+    const [percentageOptionTwo, setPercentageOptionTwo] = useState(0);
+
     useEffect(() => {
         if (!authenticatedUser) {
             navigate("/login", { state: { from: location } });
         } else if (!question || !author) {
             navigate("/404");
+        } else {
+            const numberVotesTotal = question.optionOne.votes.length + question.optionTwo.votes.length;
+            setPercentageOptionOne((question.optionOne.votes.length / numberVotesTotal * 100).toFixed(2));
+            setPercentageOptionTwo((question.optionTwo.votes.length / numberVotesTotal * 100).toFixed(2));
         }
     }, [authenticatedUser, question, author, navigate, location]);
 
@@ -35,23 +42,18 @@ const QuestionDetail = () => {
     const handleOption = (e, option) => {
         e.preventDefault();
         dispatch(handleVoteQuestion(authenticatedUser, question.id, option));
-        navigate("/");
+        const numberVotesTotal = question.optionOne.votes.length + question.optionTwo.votes.length + 1;
+        if (option === "optionOne") {
+            setPercentageOptionOne(((question.optionOne.votes.length + 1) / numberVotesTotal * 100).toFixed(2));
+            setPercentageOptionTwo((question.optionTwo.votes.length / numberVotesTotal * 100).toFixed(2));
+        } else {
+            setPercentageOptionOne((question.optionOne.votes.length / numberVotesTotal * 100).toFixed(2));
+            setPercentageOptionTwo(((question.optionTwo.votes.length + 1) / numberVotesTotal * 100).toFixed(2));
+        }
     };
 
     const onVoteOptionOne = (e) => handleOption(e, "optionOne");
     const onVoteOptionTwo = (e) => handleOption(e, "optionTwo");
-
-    const calcPercentage = (option, question) => {
-        const numberVotesTotal = question.optionOne.votes.length + question.optionTwo.votes.length;
-        switch (option) {
-            case "optionOne":
-                return (question.optionOne.votes.length / numberVotesTotal * 100).toFixed(2) + " %";
-            case "optionTwo":
-                return (question.optionTwo.votes.length / numberVotesTotal * 100).toFixed(2) + " %";
-            default:
-                return "";
-        }
-    };
 
     return (
         <div>
@@ -82,14 +84,14 @@ const QuestionDetail = () => {
                     onVote={onVoteOptionOne}
                     isAnswered={hasVoted}
                     isChoosen={hasVotedForOptionOne}
-                    percentageVotes={calcPercentage("optionOne", question)}
+                    percentageVotes={percentageOptionOne}
                 />
                 <QuestionOption
                     option={question.optionTwo}
                     onVote={onVoteOptionTwo}
                     isAnswered={hasVoted}
                     isChoosen={hasVotedForOptionTwo}
-                    percentageVotes={calcPercentage("optionTwo", question)}
+                    percentageVotes={percentageOptionTwo}
                 />
             </div>
 
