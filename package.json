@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@reduxjs/toolkit": "^2.2.7",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.20.6",
     "autoprefixer": "^10.4.20",
@@ -15,6 +16,7 @@
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
     "redux": "^5.0.1",
+    "reselect": "^5.1.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

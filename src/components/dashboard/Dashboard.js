@@ -1,16 +1,19 @@
 import { useSelector } from "react-redux";
 import Question from "../common/Question/Question";
 import "./Dashboard.css";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 const Dashboard = () => {
     const [showUnanswered, setShowUnanswered] = useState(true);
     const authenticatedUser = useSelector((state) => state.authenticatedUser);
     const questions = useSelector((state) => {
         const questionsArray = state.questions ? Object.values(state.questions) : [];
-        return questionsArray.sort((a, b) => b.timestamp - a.timestamp);
+        return questionsArray;
     });
     
+    const sortedQuestions = useMemo(() => {
+        return questions.sort((a, b) => b.timestamp - a.timestamp);
+    }, [questions]);
     const users = useSelector((state) => state.users);
 
     const unanswered = (question) => (!question.optionOne.votes.includes(authenticatedUser.id)
@@ -18,8 +21,6 @@ const Dashboard = () => {
 
     const answered = (question) => (question.optionOne.votes.includes(authenticatedUser.id)
         || question.optionTwo.votes.includes(authenticatedUser.id));
-
-    const questionsArray = questions ? Object.values(questions) : [];
 
     return (
         <div className="section-questions" data-testid="section-questions">
@@ -30,8 +31,8 @@ const Dashboard = () => {
                 <>
                     <h2 className="section-title">Unanswered Questions</h2>
                     <ul className="grid-section">
-                        {questionsArray.filter(unanswered).length > 0 ? (
-                            questionsArray
+                        {sortedQuestions.filter(unanswered).length > 0 ? (
+                            sortedQuestions
                                 .filter(unanswered)
                                 .map((question) => (
                                     <li key={question.id}>
@@ -47,8 +48,8 @@ const Dashboard = () => {
                 <>
                     <h2 className="section-title-answered">Answered Questions</h2>
                     <ul className="grid-section">
-                        {questionsArray.filter(answered).length > 0 ? (
-                            questionsArray
+                        {sortedQuestions.filter(answered).length > 0 ? (
+                            sortedQuestions
                                 .filter(answered)
                                 .map((question) => (
                                     <li key={question.id}>
